@@ -1,5 +1,5 @@
 /*
- * SelectionSort.c
+ * ShellSort.c
  * 소프트웨어학부 20213043 이세현
  * test case input
    3
