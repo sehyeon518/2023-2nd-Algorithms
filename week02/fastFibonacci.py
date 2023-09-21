@@ -24,13 +24,16 @@ def multiply(a, b):
 def fastFibo(n):
     if(n <= 1):
         return mat
+    elif(n%2 == 1):
+        y = fastFibo((n-1)/2)
+        return multiply(mat, multiply(y, y))
     else:
-        answer = multiply(mat, fastFibo(n-1))
-        return answer
+        y = fastFibo(n/2)
+        return multiply(y, y)
 
 
 numTestCases = int(input())
 
 for i in range(numTestCases):
     testcase = int(input())
-    print(fastFibo(testcase))
+    print(fastFibo(testcase+1)[1][1])
