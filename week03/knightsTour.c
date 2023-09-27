@@ -26,7 +26,6 @@ int knightTour(point pos, int counter) {
     point next;
 
     if(counter == M * N) {
-        path[M][N] = counter;
         return 1;
     }
     for(int i = 0; i < 8; i++) {
@@ -34,8 +33,8 @@ int knightTour(point pos, int counter) {
         next.y = pos.y + d[i].y;
         if (next.x > 0 && next.x <= M && next.y > 0 && next.y <= N && board[next.x][next.y] == 0) {
             board[next.x][next.y] = 1;
+            path[next.x][next.y] = counter+1;
             if (knightTour(next, counter+1)) {
-                path[next.x][next.y] = counter+1;
                 return 1;
             }
             board[next.x][next.y] = 0;
@@ -62,6 +61,7 @@ int main() {
         int complete = knightTour((point){s, t}, 1);
         if (!complete) printf("0\n");
         else {
+            printf("1\n");
             for(int m = 1; m <= M; m++) {
                 for(int n = 1; n <= N; n++) {
                     printf("%d ", path[m][n]);
