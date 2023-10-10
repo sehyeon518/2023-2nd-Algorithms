@@ -28,7 +28,7 @@ int main() {
             scanf("%d", &array[i]);
         }
         int answer = maxSubsequenceSum(array, n, &start, &end);
-        if (answer < 0) {
+        if (answer <= 0) {
             printf("0 -1 -1\n");
         }
         else {
@@ -42,28 +42,24 @@ int maxSubsequenceSum(int a[], int n, int *start, int *end) {
     int i, j;
     int maxSum = 0, thisSum = 0;
     *start = *end = -1;
-    for(i = 0, j = 0; j < n; j++) {
+    for(i = 0, j = 0; i < n && j < n; j++) {
+        while (a[i] == 0) {
+            i++;
+            continue;
+        }
+        
         thisSum += a[j];
+        
         if(thisSum > maxSum) {
             maxSum = thisSum;
             *start = i;
             *end = j;
         }
-        else if(thisSum == maxSum && j-i < *end-*start) {
-            *start = i;
-            *end = j;
-        }
         else if (thisSum < 0) {
             i = j+1;
-            if(a[i] == 0) {
-                i++;
-                j++;
-            }
-            if(a[j] == 0) {
-                j++;
-            }
             thisSum = 0;
         }
     }
+
     return maxSum;
 }
