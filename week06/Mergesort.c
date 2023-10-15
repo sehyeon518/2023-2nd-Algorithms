@@ -1,20 +1,6 @@
-/*
- * Mergesort.c
- * 소프트웨어학부 20213043 이세현
- * test case input
-   3
-   8 1 2 3 4 5 6 7 8
-   8 8 1 7 2 6 3 5 4
-   1 5
- * test case output
-   12
-   16
-   0
- */
-
 #include <stdio.h>
 
-void mergeSortIterative(int a[], int low, int high);
+void mergeSort(int a[], int low, int high);
 void merge(int a[], int low, int mid, int high);
 
 int answer;
@@ -31,17 +17,17 @@ int main() {
             scanf("%d", &array[i]);
         }
         
-        mergeSortIterative(array, 0, n-1);
+        mergeSort(array, 0, n-1);
         printf("%d\n", answer);        
     }
 }
 
-void mergeSortIterative(int a[], int low, int high) {
+void mergeSort(int a[], int low, int high) {
     if (low >= high) return;
 
     int mid = (low + high) / 2;
-    mergeSortIterative(a, low, mid);
-    mergeSortIterative(a, mid+1, high);
+    mergeSort(a, low, mid);
+    mergeSort(a, mid+1, high);
     merge(a, low, mid, high);
 }
 
