@@ -1,3 +1,17 @@
+/*
+ * Mergesort.c
+ * 소프트웨어학부 20213043 이세현
+ * test case input
+   3
+   8 1 2 3 4 5 6 7 8
+   8 8 1 7 2 6 3 5 4
+   1 5
+ * test case output
+   12
+   16
+   0
+ */
+
 #include <stdio.h>
 
 void mergeSort(int a[], int low, int high);
