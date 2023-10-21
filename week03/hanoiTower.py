@@ -24,9 +24,6 @@ def hanoi_tower(n, a, b, c, target):
     else:
         hanoi_tower(n-1, b, a, c, target - t);
 
-def solve_hanoi_tower():
-    num_disks = 3;
-    hanoi_tower(num_disks, 1, 2, 3)
 
 numTestCases = int(input())
 
